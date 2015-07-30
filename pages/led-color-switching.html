@@ -1,1 +1,33 @@
-Led color switching example 
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+    div {
+        background-color: black;
+        width: 200px;
+        height: 200px;
+    }
+
+</style>
+
+<div id='led'/>
+<script type="text/javascript">
+    var led = document.getElementById('led');
+    var colors = [
+        "rgb(255, 0, 0)", 
+        "rgb(0, 255, 0)", 
+        "rgb(0, 0, 255)", 
+        "rgb(255, 255, 0)",
+    ];
+    var i = 0;
+    var setNextColor = function() {
+        led.style.backgroundColor = colors[i];
+        i = (i + 1) % colors.length;
+    };
+
+    setNextColor();
+    setInterval(setNextColor, 1000);
+</script>
+</body>
+</html>
